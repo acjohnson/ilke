@@ -1,27 +1,30 @@
 [deploy]
-deploy ansible_connection=local ansible_python_interpreter=/usr/bin/python3
+ilke-master ansible_connection=local ansible_python_interpreter=/usr/bin/python3
 
 [masters]
-master1  ansible_host=10.10.20.4
+ilke-master  ansible_host=192.168.100.222
 
 [etcd]
-master1  ansible_host=10.10.20.4
+ilke-master  ansible_host=192.168.100.222
 
 [workers]
-worker2  ansible_host=10.10.20.5
-worker3  ansible_host=10.10.20.6
+ilke-k8s-1  ansible_host=192.168.100.232
+ilke-k8s-2  ansible_host=192.168.100.129
+ilke-k8s-3  ansible_host=192.168.100.144
 
 [storage]
-worker4 ansible_host=10.10.20.20
+ilke-k8s-1  ansible_host=192.168.100.232
+ilke-k8s-2  ansible_host=192.168.100.129
+ilke-k8s-3  ansible_host=192.168.100.144
 
 [all:vars]
-advertise_masters=10.10.20.4
+advertise_masters=192.168.100.222
 #advertise_masters=kubernetes.localcluster.lan
 
 # SSH connection settings
 ansible_ssh_extra_args=-o StrictHostKeyChecking=no
-ansible_user=vagrant
-ansible_ssh_private_key_file=/home/vagrant/ssh-private-key.pem
+ansible_user=root
+ansible_ssh_private_key_file=/root/.ssh/id_ed25519
 
 # Python version
 
@@ -30,4 +33,7 @@ ansible_ssh_private_key_file=/home/vagrant/ssh-private-key.pem
 ansible_python_interpreter=/usr/bin/python3
 
 [etc_hosts]
-#kubernetes.localcluster.lan ansible_host=10.10.20.4
+ilke-master ansible_host=192.168.100.222
+ilke-k8s-1  ansible_host=192.168.100.232
+ilke-k8s-2  ansible_host=192.168.100.129
+ilke-k8s-3  ansible_host=192.168.100.144
