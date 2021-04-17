@@ -11,7 +11,7 @@ ilke_pki:
     root_cn: "ILKI Kubernetes Engine"
     expirity: "+3650d"
   management:
-    rotate_certificats: False
+    rotate_certificats: True
 
 ilke_base_components:
   etcd:
