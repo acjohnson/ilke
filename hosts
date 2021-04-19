@@ -1,33 +1,50 @@
 [deploy]
-deploy ansible_connection=local ansible_python_interpreter=/usr/bin/python3
+ilke-master-1 ansible_connection=local ansible_python_interpreter=/usr/bin/python3
 
 [masters]
-master1  ansible_host=10.10.20.4
+ilke-master-1 ansible_host=192.168.1.91
+ilke-master-2 ansible_host=192.168.1.184
+ilke-master-3 ansible_host=192.168.1.155
 
 [etcd]
-master1  ansible_host=10.10.20.4
+ilke-master-1 ansible_host=192.168.1.91
+ilke-master-2 ansible_host=192.168.1.184
+ilke-master-3 ansible_host=192.168.1.155
 
 [workers]
-worker2  ansible_host=10.10.20.5
-worker3  ansible_host=10.10.20.6
+ilke-worker-1 ansible_host=192.168.1.194
+ilke-worker-2 ansible_host=192.168.1.214
+ilke-worker-3 ansible_host=192.168.1.215
+ilke-worker-4 ansible_host=192.168.1.163
+ilke-worker-5 ansible_host=192.168.1.75
+ilke-worker-6 ansible_host=192.168.1.180
 
 [storage]
-worker4 ansible_host=10.10.20.20
+ilke-storage-1 ansible_host=192.168.1.73
+ilke-storage-2 ansible_host=192.168.1.102
+ilke-storage-3 ansible_host=192.168.1.122
 
 [all:vars]
-advertise_masters=10.10.20.4
+# HAProxy LB is running on OpenWRT main router 192.168.1.254 for better or for worse...
+advertise_masters=192.168.1.254
 #advertise_masters=kubernetes.localcluster.lan
 
 # SSH connection settings
 ansible_ssh_extra_args=-o StrictHostKeyChecking=no
-ansible_user=vagrant
-ansible_ssh_private_key_file=/home/vagrant/ssh-private-key.pem
-
-# Python version
-
-# If centOS-7, use python2.7
-# If no-CentOS-7, use Python3
+ansible_user=root
+ansible_ssh_private_key_file=/root/.ssh/id_ed25519
 ansible_python_interpreter=/usr/bin/python3
 
 [etc_hosts]
-#kubernetes.localcluster.lan ansible_host=10.10.20.4
+ilke-master-1 ansible_host=192.168.1.91
+ilke-master-2 ansible_host=192.168.1.184
+ilke-master-3 ansible_host=192.168.1.155
+ilke-storage-1 ansible_host=192.168.1.73
+ilke-storage-2 ansible_host=192.168.1.102
+ilke-storage-3 ansible_host=192.168.1.122
+ilke-worker-1 ansible_host=192.168.1.194
+ilke-worker-2 ansible_host=192.168.1.214
+ilke-worker-3 ansible_host=192.168.1.215
+ilke-worker-4 ansible_host=192.168.1.163
+ilke-worker-5 ansible_host=192.168.1.75
+ilke-worker-6 ansible_host=192.168.1.180
