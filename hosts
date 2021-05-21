@@ -11,11 +11,13 @@ ilke-master  ansible_host=192.168.100.222
 ilke-k8s-1  ansible_host=192.168.100.232
 ilke-k8s-2  ansible_host=192.168.100.129
 ilke-k8s-3  ansible_host=192.168.100.144
+ilke-k8s-4  ansible_host=192.168.100.187
 
 [storage]
 ilke-k8s-1  ansible_host=192.168.100.232
 ilke-k8s-2  ansible_host=192.168.100.129
 ilke-k8s-3  ansible_host=192.168.100.144
+ilke-k8s-4  ansible_host=192.168.100.187
 
 [all:vars]
 advertise_masters=192.168.100.222
@@ -37,3 +39,4 @@ ilke-master ansible_host=192.168.100.222
 ilke-k8s-1  ansible_host=192.168.100.232
 ilke-k8s-2  ansible_host=192.168.100.129
 ilke-k8s-3  ansible_host=192.168.100.144
+ilke-k8s-4  ansible_host=192.168.100.187
