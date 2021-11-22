@@ -26,8 +26,11 @@ ilke-storage-3 ansible_host=192.168.1.122
 
 [all:vars]
 # HAProxy LB is running on OpenWRT main router 192.168.1.254 for better or for worse...
-advertise_masters=192.168.1.254
+## Turns out this is a bad idea... If the main router goes down then the entire k8s cluster becomes borked which means no prometheus metrics is the main router locks up, crashes, etc...
+## Using ilke-master-1 instead...
+#advertise_masters=192.168.1.254
 #advertise_masters=kubernetes.localcluster.lan
+advertise_masters=192.168.1.91
 
 # SSH connection settings
 ansible_ssh_extra_args=-o StrictHostKeyChecking=no
