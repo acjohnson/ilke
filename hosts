@@ -18,11 +18,11 @@ ilke-worker-3 ansible_host=192.168.1.215
 ilke-worker-4 ansible_host=192.168.1.163
 ilke-worker-5 ansible_host=192.168.1.75
 ilke-worker-6 ansible_host=192.168.1.180
-
-[storage]
 ilke-storage-1 ansible_host=192.168.1.73
 ilke-storage-2 ansible_host=192.168.1.102
 ilke-storage-3 ansible_host=192.168.1.122
+
+[storage]
 
 [all:vars]
 # HAProxy LB is running on OpenWRT main router 192.168.1.254 for better or for worse...

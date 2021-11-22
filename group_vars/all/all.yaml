@@ -70,7 +70,7 @@ ilke_features:
     enabled: false
     release: "0.0.89"
   storage:
-    enabled: true
+    enabled: false
     release: "2.8.0"
     jiva:
       data_path: /var/openebs
