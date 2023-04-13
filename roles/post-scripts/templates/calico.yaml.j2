@@ -3288,6 +3288,7 @@ rules:
       - create
       - update
       - delete
+      - watch
   # kube-controllers manages hostendpoints.
   - apiGroups: ["crd.projectcalico.org"]
     resources:
@@ -3821,6 +3822,7 @@ spec:
           operator: Exists
         - key: node-role.kubernetes.io/master
           effect: NoSchedule
+          value: "true"
       serviceAccountName: calico-kube-controllers
       priorityClassName: system-cluster-critical
       containers:
